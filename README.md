@@ -78,6 +78,10 @@ CommitRail sits between the AI agent and external systems, intercepting actions 
     │ Gateway)│      │Compute) │      │ Records) │
     └─────────┘      └─────────┘      └──────────┘
 ```
+<div align="center">
+  <img src="file_00000000d1d08208b1809783e70fb712.png" alt="CommitRail logo" width="700" style="max-width: 100%; height: auto;" />
+</div>
+
 
 This design ensures the agent never directly performs high-risk actions without validation, state tracking, and a safe rollback path.
 
