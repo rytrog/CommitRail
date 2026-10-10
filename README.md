@@ -1,7 +1,7 @@
 # CommitRail
 
 <div align="center">
-  <img src="file_00000000d1d08208b1809783e70fb712.png" alt="CommitRail logo" width="220" />
+  <img src="file_00000000d1d08208b1809783e70fb712.png" alt="CommitRail logo" width="700" style="max-width: 100%; height: auto;" />
 </div>
 
 CommitRail is a transactional execution and recovery infrastructure layer designed to make autonomous AI agents safer and more reliable when interacting with real-world systems.
