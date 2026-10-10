@@ -1,5 +1,9 @@
 # CommitRail
 
+<div align="center">
+  <img src="file_00000000d1d08208b1809783e70fb712.png" alt="CommitRail logo" width="220" />
+</div>
+
 CommitRail is a transactional execution and recovery infrastructure layer designed to make autonomous AI agents safer and more reliable when interacting with real-world systems.
 
 It sits between an AI agent and the tools, APIs, databases, payment platforms, and cloud services that can cause irreversible damage when invoked carelessly.
@@ -46,13 +50,13 @@ It sits between an AI agent and the tools, APIs, databases, payment platforms, a
 CommitRail sits between the AI agent and external systems, intercepting actions before they execute and enforcing guardrails, approval checks, transactional boundaries, and recovery logic.
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
+┌───────────────────────────────────────────────────────────────────────┐
 │                         AI Agent                                │
 │                    (Autonomous Action)                          │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
+└────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌───────────────────────────────────────────────────────────────────────┐
 │                    CommitRail Guardrails                        │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │ Policy       │  │ Transactional│  │ Recovery & Audit     │  │
@@ -63,16 +67,16 @@ CommitRail sits between the AI agent and external systems, intercepting actions 
 │  │ • Business   │  │ • Atomicity  │  │ • Audit Records      │  │
 │  │   Rules      │  │              │  │ • Error Recovery     │  │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘  │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-        ┌────────────────┼────────────────┐
-        ▼                ▼                ▼
-   ┌─────────┐      ┌─────────┐      ┌──────────┐
-   │ Stripe  │      │   AWS   │      │ Database │
-   │         │      │         │      │          │
-   │(Payment │      │(Storage,│      │(Customer │
-   │ Gateway)│      │Compute) │      │ Records) │
-   └─────────┘      └─────────┘      └──────────┘
+└────────────────────────┬───────────────────────────────────────┘
+                          │
+         ┌────────────────┼────────────────┐
+         ▼                ▼                ▼
+    ┌─────────┐      ┌─────────┐      ┌──────────┐
+    │ Stripe  │      │   AWS   │      │ Database │
+    │         │      │         │      │          │
+    │(Payment │      │(Storage,│      │(Customer │
+    │ Gateway)│      │Compute) │      │ Records) │
+    └─────────┘      └─────────┘      └──────────┘
 ```
 
 This design ensures the agent never directly performs high-risk actions without validation, state tracking, and a safe rollback path.
