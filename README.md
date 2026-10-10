@@ -41,6 +41,37 @@ It sits between an AI agent and the tools, APIs, databases, payment platforms, a
 - Enforcing Business Rules Before AI Actions Execute
 - Maintaining Reliable Execution Records for AI Agents
 
+## Architecture Map
+
+CommitRail sits between the AI agent and external systems, intercepting actions before they execute and enforcing guardrails, approval checks, transactional boundaries, and recovery logic.
+
+```mermaid
+flowchart LR
+    classDef agent fill:#0f172a,stroke:#38bdf8,color:#e2e8f0,stroke-width:1.5px;
+    classDef rails fill:#111827,stroke:#8b5cf6,color:#f5f3ff,stroke-width:2px;
+    classDef control fill:#111827,stroke:#f59e0b,color:#fef3c7,stroke-width:1.5px;
+    classDef system fill:#0b1220,stroke:#22c55e,color:#dcfce7,stroke-width:1.5px;
+
+    A[AI Agent]:::agent --> B[CommitRail Guardrails]:::rails
+    B --> C[Policy Checks]:::control
+    B --> D[Transactional Execution]:::control
+    B --> E[Recovery & Audit Trail]:::control
+
+    C --> S1[Stripe]:::system
+    C --> S2[AWS]:::system
+    C --> S3[Database]:::system
+
+    D --> S1
+    D --> S2
+    D --> S3
+
+    E --> S1
+    E --> S2
+    E --> S3
+```
+
+This design ensures the agent never directly performs high-risk actions without validation, state tracking, and a safe rollback path.
+
 ## Product direction
 
 This repository is being expanded into a dark-themed SaaS product experience for AI agent safety and execution governance.
